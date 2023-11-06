@@ -7,5 +7,5 @@ streamlit.text('Learn snowflake')
 fruits_read=pd.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
 fruits_index=fruits_read.set_index('Fruit')
 fruits_multi=streamlit.multiselect("Select fruits:",list(fruits_index.index),['Apple','Banana'])
-fruits=fruits.loc[fruits_multi]
+fruits=fruits_read.loc[fruits_multi]
 streamlit.dataframe(fruits)
