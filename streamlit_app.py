@@ -26,10 +26,11 @@ try:
     streamlit.dataframe(response_normalized)
 except URLError as e:
   streamlit.error()
-my_connector=snowflake.connector.connect(**streamlit.secrets["snowflake"])
-my_cursor=my_connector.cursor()
-my_cursor.execute("select * from FRUIT_LOAD_LIST")
-my_cursor_rows=my_cursor.fetchall()
-streamlit.header("Fruit list contains")
-streamlit.dataframe(my_cursor_rows)
+if streamlit.button("get fruit list"):
+  my_connector=snowflake.connector.connect(**streamlit.secrets["snowflake"])
+  my_cursor=my_connector.cursor()
+  my_cursor.execute("select * from FRUIT_LOAD_LIST")
+  my_cursor_rows=my_cursor.fetchall()
+  streamlit.header("Fruit list contains")
+  streamlit.dataframe(my_cursor_rows)
 fruit_add=streamlit.text_input("What fruit woudl you like to add ?",'orange')
