@@ -12,7 +12,7 @@ fruits=fruits_index.loc[fruits_multi]
 streamlit.dataframe(fruits)
 streamlit.header('Json response')
 fruit_choice=streamlit.text_input("Which fruit information would you like to get ?",'')
-response=requests.get("https://fruityvice.com/api/fruit/fruit_choice")
+response=requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
 response_json = response.json()
 response_normalized = pd.json_normalize(response_json)
 streamlit.dataframe(response_normalized)
