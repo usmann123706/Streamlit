@@ -9,4 +9,7 @@ fruits_index=fruits_read.set_index('Fruit')
 fruits_multi=streamlit.multiselect("Select fruits:",list(fruits_index.index))
 fruits=fruits_index.loc[fruits_multi]
 streamlit.dataframe(fruits)
-
+streamlit.header('Json response')
+import requests
+response=requests.get("https://fruityvice.com/api/fruit/watermelon")
+streamlit.text(response.json())
