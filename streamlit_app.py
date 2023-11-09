@@ -14,13 +14,13 @@ streamlit.dataframe(fruits)
 streamlit.header('Json response')
 try: 
   fruit_choice=streamlit.text_input("Which fruit information would you like to get ?")
-if not fruit_choice:
-  streamlit.error("please enter fruit to get information")
-else
-  response=requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
-  response_json = response.json()
-  response_normalized = pd.json_normalize(response_json)
-  streamlit.dataframe(response_normalized)
+  if not fruit_choice:
+    streamlit.error("please enter fruit to get information")
+  else
+    response=requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
+    response_json = response.json()
+    response_normalized = pd.json_normalize(response_json)
+    streamlit.dataframe(response_normalized)
 except URLError as e:
   streamlit.error()
 my_connector=snowflake.connector.connect(**streamlit.secrets["snowflake"])
