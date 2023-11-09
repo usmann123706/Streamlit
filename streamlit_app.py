@@ -11,7 +11,7 @@ fruits_multi=streamlit.multiselect("Select fruits:",list(fruits_index.index))
 fruits=fruits_index.loc[fruits_multi]
 streamlit.dataframe(fruits)
 streamlit.header('Json response')
-fruit_choice=streamlit.text_input("Which fruit information would you like to get ?",'')
+fruit_choice=streamlit.text_input("Which fruit information would you like to get ?",'orange')
 response=requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
 response_json = response.json()
 response_normalized = pd.json_normalize(response_json)
