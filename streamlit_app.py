@@ -16,7 +16,7 @@ try:
   fruit_choice=streamlit.text_input("Which fruit information would you like to get ?")
   if not fruit_choice:
     streamlit.error("please enter fruit to get information")
-  else
+  else:
     response=requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
     response_json = response.json()
     response_normalized = pd.json_normalize(response_json)
