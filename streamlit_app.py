@@ -1,6 +1,7 @@
 #created the main python file
 import pandas as pd
 import streamlit
+import requests
 streamlit.title('Hello Usman')
 streamlit.header('Monday Tasks')
 streamlit.text('Learn snowflake')
@@ -10,6 +11,6 @@ fruits_multi=streamlit.multiselect("Select fruits:",list(fruits_index.index))
 fruits=fruits_index.loc[fruits_multi]
 streamlit.dataframe(fruits)
 streamlit.header('Json response')
-import requests
 response=requests.get("https://fruityvice.com/api/fruit/watermelon")
-streamlit.text(response.json())
+response_normalized=pandas.json_normalize(response.json(0)
+streamlit.pandas(response_normalized)
