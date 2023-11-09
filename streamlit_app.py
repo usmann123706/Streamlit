@@ -22,7 +22,7 @@ try:
     streamlit.error("please enter fruit to get information")
   else:
     back_from_function= get_fruityvice_Date(fruit_choice)
-    response_normalized = pd.json_normalize(back_from_functio)
+    response_normalized = pd.json_normalize(back_from_function)
     streamlit.dataframe(response_normalized)
 except URLError as e:
   streamlit.error()
