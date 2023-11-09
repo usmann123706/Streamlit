@@ -12,5 +12,6 @@ fruits=fruits_index.loc[fruits_multi]
 streamlit.dataframe(fruits)
 streamlit.header('Json response')
 response=requests.get("https://fruityvice.com/api/fruit/watermelon")
+streamlit.text(response.json())
 response_normalized=pandas.json_normalize(response.json())
 streamlit.dataframe(response_normalized)
