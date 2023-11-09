@@ -33,4 +33,7 @@ if streamlit.button("get fruit list"):
   my_cursor_rows=my_cursor.fetchall()
   streamlit.header("Fruit list contains")
   streamlit.dataframe(my_cursor_rows)
-fruit_add=streamlit.text_input("What fruit woudl you like to add ?",'orange')
+fruit_add=streamlit.text_input("What fruit would you like to add ?")
+if streamlit.button("Add new fruit"):
+  my_cursor.execute("Insert into FRUIT_LOAD_LIST values ('"+fruit_add+"')")
+  streamlit.write("Thanks for adding",fruit_add)
